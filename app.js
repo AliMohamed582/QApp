@@ -28,8 +28,16 @@ mongoose.connect(uri)
 const userRoutes = require('./routes/userRoutes');
 const queueRoutes = require('./routes/queueRoutes');
 
+const authRoutes = require('./routes/authRoutes');
+const branchRoutes = require('./routes/branchRoutes');
+const serviceRequestRoutes = require('./routes/serviceRequestRoutes');
+
 app.use('/api', userRoutes);
 app.use('/api', queueRoutes);
+
+app.use('/api', authRoutes);
+app.use('/api', branchRoutes);
+app.use('/api', serviceRequestRoutes);
 
 // Test route
 app.get('/', (req, res) => {
