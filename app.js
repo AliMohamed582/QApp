@@ -11,7 +11,6 @@ dotenv.config();
 // Middleware
 app.use(express.json());
 
-// MongoDB connection (John’s part)
 const uri = process.env.MONGODB_URI;
 if (!uri) {
   console.error("❌ MONGODB_URI missing in .env");
@@ -24,6 +23,13 @@ mongoose.connect(uri)
     console.error("❌ Connection Error:", err.message);
     process.exit(1);
   });
+
+// Import and use routes
+const userRoutes = require('./routes/userRoutes');
+const queueRoutes = require('./routes/queueRoutes');
+
+app.use('/api', userRoutes);
+app.use('/api', queueRoutes);
 
 // Test route
 app.get('/', (req, res) => {
