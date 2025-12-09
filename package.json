@@ -1,18 +1,24 @@
 {
   "name": "qapp",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "Smart Queue System: Digital ticketing, real-time updates, and queue tracking. Pre-Service Verification: Upload documents in advance, staff pre-checks to cut branch time. AI Branch Prediction & Virtual Teller: Forecast peak hours, recommend visit times. VIP & Analytics: Priority queues, corporate scheduling for real-time branch flow insights.",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AliMohamed582/QApp.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AliMohamed582/QApp/issues"
+  },
+  "homepage": "https://github.com/AliMohamed582/QApp#readme",
   "dependencies": {
-    "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "mongoose": "^9.0.1"
   }
