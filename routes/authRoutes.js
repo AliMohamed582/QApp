@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
-// Register
 router.post('/auth/register', async (req, res) => {
   try {
     const user = new User(req.body);
@@ -13,7 +12,7 @@ router.post('/auth/register', async (req, res) => {
   }
 });
 
-// Login
+
 router.post('/auth/login', async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email, password });

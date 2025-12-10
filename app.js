@@ -24,7 +24,7 @@ mongoose.connect(uri)
     process.exit(1);
   });
 
-// Import and use routes
+
 const userRoutes = require('./routes/userRoutes');
 const queueRoutes = require('./routes/queueRoutes');
 
@@ -39,12 +39,12 @@ app.use('/api', authRoutes);
 app.use('/api', branchRoutes);
 app.use('/api', serviceRequestRoutes);
 
-// Test route
+
 app.get('/', (req, res) => {
   res.send('QApp Backend Running');
 });
 
-// Start server
+
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
