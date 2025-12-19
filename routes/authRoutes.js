@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-router.post('/auth/register', async (req, res) => {
+router.post('/register', async (req, res) => {
   try {
     const user = new User(req.body);
     await user.save();
@@ -13,11 +14,12 @@ router.post('/auth/register', async (req, res) => {
 });
 
 
-router.post('/auth/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email, password });
   if (!user) return res.status(401).json({ error: 'Invalid credentials' });
-  res.json({ message: 'Logged in', userId: user._id, role: user.role });
+  const token = jwt.sign({ userId: user._id, role: user.role }, 'secretkey', { expiresIn: '1h' });
+  res.json({ token, userId: user._id, role: user.role });
 });
 
 module.exports = router;

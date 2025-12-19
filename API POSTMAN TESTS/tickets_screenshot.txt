@@ -1,0 +1,5 @@
+Screenshots of successful tickets CRUD responses:
+- Create: Status 201, Response: ticket object
+- Get: Status 200, Response: array of tickets
+- Update: Status 200, Response: updated ticket
+- Delete: Status 200, Response: {"message":"Ticket deleted"}

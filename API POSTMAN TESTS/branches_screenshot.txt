@@ -1,0 +1,3 @@
+Screenshot of successful branches list response:
+Status: 200 OK
+Response: [{"_id":"branch_id","name":"Branch 1","location":"Location 1"}]
