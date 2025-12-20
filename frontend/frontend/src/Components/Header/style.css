@@ -1,0 +1,21 @@
+/* src/components/Header/style.css */
+.header {
+  border-bottom: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #2563eb;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+}

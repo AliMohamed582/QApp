@@ -1,0 +1,39 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import api from '../../API/client';
+
+export default function Register() {
+  const [form, setForm] = useState({ username: '', email: '', password: '' });
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    try {
+      // ✅ backend expects /api/auth/register
+      await api.post('/auth/register', form);
+      navigate('/login');
+    } catch (err) {
+      setError(err.response?.data?.error || 'Registration failed');
+    }
+  };
+
+  return (
+    <div>
+      <h2>Register</h2>
+      {error && <div style={{ color: 'red' }}>{error}</div>}
+      <form onSubmit={onSubmit}>
+        <label>Username:</label>
+        <input name="username" value={form.username} onChange={onChange} required />
+        <label>Email:</label>
+        <input name="email" value={form.email} onChange={onChange} required />
+        <label>Password:</label>
+        <input name="password" type="password" value={form.password} onChange={onChange} required />
+        <button type="submit">Create account</button>
+      </form>
+    </div>
+  );
+}
